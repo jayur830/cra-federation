@@ -1,0 +1,31 @@
+{
+  "name": "vite-routes-federation",
+  "private": true,
+  "packageManager": "yarn@3.2.3",
+  "workspaces": [
+    "./packages/**"
+  ],
+  "scripts": {
+    "setup": "yarn dlx @yarnpkg/sdks vscode",
+    "app1": "yarn workspace app1",
+    "app2": "yarn workspace app2",
+    "start": "bash ./scripts/host-start.sh"
+  },
+  "devDependencies": {
+    "@types/eslint": "^8.4.6",
+    "@types/node": "^18.7.16",
+    "@types/prettier": "^2.7.0",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
+    "concurrently": "^7.4.0",
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.3"
+  }
+}

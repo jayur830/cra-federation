@@ -1,0 +1,30 @@
+# Ignore artifacts:
+coverage
+
+# production
+build
+
+# Ignore all HTML files:
+*.html
+*.md
+
+# types 
+*.d.ts
+
+#server schema
+src/graphql/schema.tsx
+src/graphql/helpers.ts
+
+# configs
+config-overrides.js
+tsconfig.json
+tsconfig.paths.json
+.eslintrc.js
+.vscode
+cloudbuild
+k8s
+package.json
+public
+
+# Continuous Deploy
+*.yml

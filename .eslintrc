@@ -1,0 +1,109 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:import/typescript", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
+  "plugins": ["@typescript-eslint", "prettier", "import", "unused-imports", "simple-import-sort"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  },
+  "rules": {
+    "react/react-in-jsx-scope": 0,
+    "react/display-name": 0,
+    "import/no-webpack-loader-syntax": 0,
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/no-unused-vars": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "simple-import-sort/imports": [
+      "warn",
+      {
+        "groups": [
+          // Packages `react` related packages come first.
+          ["^react", "^react-router-dom", "^constate", "^@apollo/client", "^antd", "^@ant-design/icons", "^styled-components", "^dayjs", "^lodash", "^@?\\w"],
+          // Internal packages.
+          ["^@src/configs", "^@src/graphql/scheme", "^@src/graphql/queries", "^@src/graphql/mutations", "^@src/layouts", "^@src/components", "^@src/hooks", "^@src/assets"],
+          // Side effect imports.
+          ["^\\u0000"],
+          // Other relative imports. Put same-folder imports and `.` last.
+          [
+            "../../../../configs",
+            "../../../../Provider",
+            "../../../../values",
+            "../../../../types",
+            "../../../configs",
+            "../../../Provider",
+            "../../../values",
+            "../../../types",
+            "../../configs",
+            "../../Provider",
+            "../../values",
+            "../../types",
+            "../configs",
+            "../Provider",
+            "../values",
+            "../types",
+            "./configs",
+            "./Provider",
+            "./values",
+            "./types",
+            "^\\./(?=.*/)(?!/?$)",
+            "^\\.(?!/?$)",
+            "^\\./?$"
+          ],
+          // Style imports.
+          ["^.+\\.?(css)$"],
+          ["^../../../configs/mock", "^../../configs/mock", "^../configs/mock", "^./configs/mock"]
+        ]
+      }
+    ],
+    "simple-import-sort/exports": "warn",
+    "no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "import/extensions": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-unused-expressions": "off",
+    "@typescript-eslint/no-unused-expressions": "off",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "off",
+    "naming-convention": "off",
+    "@typescript-eslint/naming-convention": "off"
+  }
+}
